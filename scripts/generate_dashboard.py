@@ -141,21 +141,21 @@ def generate_html_dashboard(alerts):
     <body>
         <div class="container">
             <div class="header">
-                <h1>🛡️ Security Dashboard</h1>
+                <h1>Security Dashboard</h1>
                 <p>Repository: <strong>{REPO}</strong></p>
                 <p>Last updated: <strong>{current_time}</strong></p>
                 <p>Total Alerts: <strong>{total_alerts}</strong></p>
             </div>
 
             <div class="card">
-                <h2>📊 Security Summary</h2>
+                <h2>Security Summary</h2>
                 <div class="chart-container">
                     <canvas id="severityChart"></canvas>
                 </div>
             </div>
 
             <div class="card">
-                <h2>📜 Recent Alerts (Top 10)</h2>
+                <h2>Recent Alerts (Top 10)</h2>
                 <ul class="alert-list">
     """
     
