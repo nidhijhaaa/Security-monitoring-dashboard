@@ -35,6 +35,22 @@ jobs:
           GH_REPOSITORY: ${{ github.repository }}
         run: python scripts/generate_dashboard.py
 
+      - name: Debug - Check generated files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in directory:"
+          ls -la
+          echo "Checking if index.html exists:"
+          if [ -f "index.html" ]; then
+            echo "index.html exists!"
+            echo "First few lines:"
+            head -3 index.html
+          else
+            echo "index.html does NOT exist!"
+            exit 1
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -42,4 +58,6 @@ jobs:
           publish_dir: ./
           publish_branch: gh-pages
           keep_files: true
-          allow_empty_commit: true
+          force_orphan: true # This ensures a clean deployment every time
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
