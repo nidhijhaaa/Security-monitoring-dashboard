@@ -1,0 +1,130 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Security Dashboard - nidhijhaaa/Security-monitoring-dashboard</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            body { 
+                font-family: Arial, sans-serif; 
+                margin: 40px; 
+                line-height: 1.6;
+                color: #333;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .header {
+                background: #f5f5f5;
+                padding: 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+            .card { 
+                border: 1px solid #ddd; 
+                border-radius: 8px; 
+                padding: 20px; 
+                margin: 10px 0; 
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .severity-critical { color: #ff2c2c; font-weight: bold; }
+            .severity-high { color: #ff6e6e; }
+            .severity-medium { color: #ffbf00; }
+            .severity-low { color: #6ecbff; }
+            .alert-list {
+                list-style-type: none;
+                padding: 0;
+            }
+            .alert-list li {
+                padding: 8px;
+                border-bottom: 1px solid #eee;
+            }
+            .alert-list li:last-child {
+                border-bottom: none;
+            }
+            .chart-container {
+                height: 300px;
+                margin: 20px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Security Dashboard</h1>
+                <p>Repository: <strong>nidhijhaaa/Security-monitoring-dashboard</strong></p>
+                <p>Last updated: <strong>2026-08-31 15:37:24</strong></p>
+                <p>Total Alerts: <strong>0</strong></p>
+            </div>
+
+            <div class="card">
+                <h2>Security Summary</h2>
+                <div class="chart-container">
+                    <canvas id="severityChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Recent Alerts (Top 10)</h2>
+                <ul class="alert-list">
+    <li>No security alerts found. Good job! 🎉</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            const ctx = document.getElementById('severityChart').getContext('2d');
+            const severityChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Critical', 'High', 'Medium', 'Low', 'Warning', 'Note', 'Error'],
+                    datasets: [{
+                        label: '# of Alerts by Severity',
+                        data: [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        backgroundColor: [
+                            '#ff2c2c', '#ff6e6e', '#ffbf00', '#6ecbff', '#aaaaaa', '#dddddd', '#ff2c2c'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Alerts'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Severity Level'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Security Alerts by Severity'
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+    </html>
+    
